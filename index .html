@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Diário de Obra</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-tools"></i> Relatório Diário de Obra</h1>
+        <p><i class="fas fa-building"></i> Nossa engenharia</p>
+    </header>
+    <main>
+        <form id="reportForm">
+            <!-- Dados do Projeto -->
+            <fieldset>
+                <legend><i class="fas fa-project-diagram"></i> Dados do Projeto</legend>
+                <label for="projectName"><i class="fas fa-sign"></i> Nome do Projeto:</label>
+                <input type="text" id="projectName" name="projectName" required>
+                <br>
+                <label for="projectID"><i class="fas fa-id-badge"></i> ID do Projeto:</label>
+                <input type="text" id="projectID" name="projectID" required>
+                <br>
+                <label for="location"><i class="fas fa-map-marker-alt"></i> Localização:</label>
+                <input type="text" id="location" name="location" required>
+            </fieldset>
+
+            <!-- Dados do Relatório -->
+            <fieldset>
+                <legend><i class="fas fa-file-alt"></i> Dados do Relatório</legend>
+                <label for="reportDate"><i class="fas fa-calendar-day"></i> Data do Relatório:</label>
+                <input type="date" id="reportDate" name="reportDate" required>
+                <br>
+                <label for="responsibleName"><i class="fas fa-user"></i> Nome do Responsável:</label>
+                <input type="text" id="responsibleName" name="responsibleName" required>
+                <br>
+                <label for="role"><i class="fas fa-briefcase"></i> Cargo:</label>
+                <input type="text" id="role" name="role" required>
+            </fieldset>
+
+            <!-- Detalhes do Trabalho -->
+            <fieldset>
+                <legend><i class="fas fa-hard-hat"></i> Detalhes do Trabalho</legend>
+                <label for="workDescription"><i class="fas fa-list"></i> Descrição do Trabalho:</label>
+                <textarea id="workDescription" name="workDescription" required></textarea>
+                <br>
+                <label for="materialsUsed"><i class="fas fa-cogs"></i> Materiais Utilizados:</label>
+                <textarea id="materialsUsed" name="materialsUsed" required></textarea>
+                <br>
+                <label for="teamMembers"><i class="fas fa-users"></i> Equipe e Funcionários Presentes:</label>
+                <textarea id="teamMembers" name="teamMembers" required></textarea>
+                <br>
+                <label for="startTime"><i class="fas fa-clock"></i> Horário de Início:</label>
+                <input type="time" id="startTime" name="startTime" required>
+                <br>
+                <label for="endTime"><i class="fas fa-clock"></i> Horário de Término:</label>
+                <input type="time" id="endTime" name="endTime" required>
+            </fieldset>
+
+            <!-- Fotos do Serviço -->
+            <fieldset>
+                <legend><i class="fas fa-camera"></i> Fotos do Serviço</legend>
+                <label for="servicePhotos"><i class="fas fa-upload"></i> Upload de Fotos:</label>
+                <input type="file" id="servicePhotos" name="servicePhotos" accept="image/*" multiple required>
+                <div id="photoPreview"></div>
+            </fieldset>
+
+            <!-- Observações -->
+            <fieldset>
+                <legend><i class="fas fa-sticky-note"></i> Observações</legend>
+                <label for="observations"><i class="fas fa-pencil-alt"></i> Observações Adicionais:</label>
+                <textarea id="observations" name="observations"></textarea>
+            </fieldset>
+
+            <!-- Botões -->
+            <button type="button" onclick="saveReport()"><i class="fas fa-save"></i> Salvar Relatório</button>
+            <button type="button" onclick="analyzeProgress()"><i class="fas fa-chart-line"></i> Analisar Progresso</button>
+            <button type="button" onclick="generatePDF()"><i class="fas fa-file-pdf"></i> Baixar PDF</button>
+        </form>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
